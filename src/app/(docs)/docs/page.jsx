@@ -36,7 +36,7 @@ export default async function Projects() {
           <ul>
             {projects.map(({ title, slug }) => {
               return (
-                <li>
+                <li key={slug}>
                   <Link href={`/docs/${slug}`}>{ title }</Link>
                 </li>
               )
