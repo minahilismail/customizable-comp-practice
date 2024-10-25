@@ -10,12 +10,12 @@ export const metadata = {
 }
 
 export default async function Projects() {
-  const filenames = await fs.readdir(path.join(process.cwd(), 'src/projects'));
+  const filenames = await fs.readdir(path.join(process.cwd(), 'src/docs'));
 
 
 
   const projects = await Promise.all(filenames.map(async (filename) => {
-    const content = await fs.readFile(path.join(process.cwd(), 'src/projects', filename), 'utf-8');
+    const content = await fs.readFile(path.join(process.cwd(), 'src/docs', filename), 'utf-8');
     const { frontmatter } = await compileMDX({
       source: content,
       options: {
@@ -37,7 +37,7 @@ export default async function Projects() {
             {projects.map(({ title, slug }) => {
               return (
                 <li>
-                  <Link href={`/projects/${slug}`}>{ title }</Link>
+                  <Link href={`/docs/${slug}`}>{ title }</Link>
                 </li>
               )
             })}

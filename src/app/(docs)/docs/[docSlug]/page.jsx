@@ -7,7 +7,7 @@ import ComponentPreview from '@/components/ComponentPreview';
 import CustomizationPanel from '@/components/CustomizationPanel';
 
 export default async function ProjectPage({ params : {docSlug}} ) {
-  const content = await fs.readFile(path.join(process.cwd(), 'src/projects', `${docSlug}.mdx`), 'utf-8');
+  const content = await fs.readFile(path.join(process.cwd(), 'src/docs', `${docSlug}.mdx`), 'utf-8');
 
 
   const data = await compileMDX({
